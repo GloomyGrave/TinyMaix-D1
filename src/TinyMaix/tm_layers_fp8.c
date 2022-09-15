@@ -18,6 +18,7 @@ limitations under the License.
 #endif
 #include "arch_cpu.h"
 #include "float.h"
+#include "exp.h"
 
 uint8_t tm_fp32to8(float fp32) 
 {
@@ -129,7 +130,7 @@ tm_err_t tml_softmax(tm_mat_t* in, tm_mat_t* out, sctype_t in_s, zptype_t in_zp,
     float sum = 0;
     for(int c=0; c <in->c; c++){
         dout[c] -= dmax;
-        dout[c] = (float)exp(dout[c]);
+        dout[c] = (float)_exp(dout[c]);
         sum     += dout[c];
         //dout[c] -= 0.000000001;  //prevent 1.0 value (cause 256 overflow)
     }

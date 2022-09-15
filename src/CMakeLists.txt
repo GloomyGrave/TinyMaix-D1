@@ -6,6 +6,7 @@ add_executable(TinyMaixD1
     boot/trap.S
     common/common.c
     common/printf.c
+    common/exp.c
     drivers/clint.c
     drivers/clk.c
     drivers/gpio.c
@@ -13,6 +14,11 @@ add_executable(TinyMaixD1
     drivers/timer.c
     drivers/uart.c
     drivers/watchdog.c
+    TinyMaix/tm_layers_fp8.c
+    TinyMaix/tm_layers_O1.c
+    TinyMaix/tm_layers.c
+    TinyMaix/tm_model.c
+    TinyMaix/tm_stat.c
     main.c
 )
 set_target_properties(TinyMaixD1 PROPERTIES LINK_DEPENDS "${LINK_SCRIPT}")

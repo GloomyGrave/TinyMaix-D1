@@ -67,6 +67,7 @@ include_directories(
     include/boot
     include/common
     include/drivers
+    include/TinyMaix
     ${PROJECT_BINARY_DIR}
 )
 

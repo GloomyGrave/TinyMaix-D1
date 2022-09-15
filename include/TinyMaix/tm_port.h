@@ -13,6 +13,8 @@ limitations under the License.
 #ifndef __TM_PORT_H
 #define __TM_PORT_H
 
+#include <printf.h>
+
 #define TM_ARCH_CPU         (0) //default, pure cpu compute
 #define TM_ARCH_ARM_SIMD    (1) //ARM Cortex M4/M7, etc.
 #define TM_ARCH_ARM_NEON    (2) //ARM Cortex A7, etc.
@@ -46,15 +48,11 @@ limitations under the License.
 /******************************* DBG TIME CONFIG  ************************************/
 #include <sys/time.h>
 #include <time.h>
-#define  TM_GET_US()       ((uint32_t)(clock()*1000000/CLOCKS_PER_SEC))
+#define TM_GET_US() 
 
-#define TM_DBGT_INIT()     uint32_t _start,_finish;float _time;_start=TM_GET_US();
-#define TM_DBGT_START()    _start=TM_GET_US();
-#define TM_DBGT(x)         {_finish=TM_GET_US();\
-                            _time = (float)(_finish-_start)/1000.0;\
-                            TM_PRINTF("===%s use %.3f ms\n", (x), _time);\
-                            _start=TM_GET_US();}
-
+#define TM_DBGT_INIT() 
+#define TM_DBGT_START()   
+#define TM_DBGT(x)  x
 /******************************* DBG PERFORMANCE CONFIG  ************************************/
 //need clock tick to make accurate statistics
 #define TM_EN_PERF 0

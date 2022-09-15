@@ -12,7 +12,7 @@ limitations under the License.
 // It is default O0 implement
 #include "tinymaix.h"
 #include "float.h"
-#include "math.h"
+#include "exp.h"
 
 #if TM_OPT_LEVEL == TM_OPT0
 
@@ -299,7 +299,7 @@ tm_err_t __attribute__((weak)) tml_softmax(tm_mat_t* in, tm_mat_t* out, sctype_t
     float sum = 0;
     for(int c=0; c <in->c; c++){
         dout[c] -= dmax;
-        dout[c] = (float)exp(dout[c]);
+        dout[c] = (float)_exp(dout[c]);
         sum     += dout[c];
         dout[c] -= 0.000001;  //prevent 1.0 value (cause 256 overflow)
     }
