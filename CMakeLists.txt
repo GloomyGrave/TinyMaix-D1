@@ -9,7 +9,7 @@ set(CMAKE_CXX_COMPILER "${RISCV_ROOT_PATH}/bin/riscv64-unknown-linux-gnu-g++")
 
 set(CMAKE_SYSROOT "${RISCV_ROOT_PATH}/sysroot")
 
-set(CMAKE_COMMON_FLAGS "-O3 -fno-omit-frame-pointer -march=rv64gcvxtheadc -mabi=lp64d -mtune=c906 -nostartfiles -MD -mcmodel=medany -ffreestanding -fno-common -mno-relax")
+set(CMAKE_COMMON_FLAGS "-O2 -fno-omit-frame-pointer -march=rv64gcvxtheadc -mabi=lp64d -nostdlib -mtune=c906 -nostartfiles -MD -mcmodel=medany -ffreestanding -fno-common -mno-relax")
 set(CMAKE_DISABLE_WARN_FLAGS "-Wno-int-to-pointer-cast -Wno-implicit-function-declaration")
 
 set(CMAKE_C_FLAGS "${CMAKE_DISABLE_WARN_FLAGS} ${CMAKE_C_FLAGS} ${CMAKE_COMMON_FLAGS}" CACHE STRING "c flags")
@@ -61,7 +61,7 @@ set(CMAKE_AR "${RISCV_ROOT_PATH}/bin/riscv64-unknown-linux-gnu-ar")
 set(CMAKE_OBJCOPY "${RISCV_ROOT_PATH}/bin/riscv64-unknown-linux-gnu-objcopy")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/link.ld)
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LINKER_SCRIPT} -nostdlib")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LINKER_SCRIPT} -nostdlib -fno-common")
 
 include_directories(
     include/boot
