@@ -9,8 +9,8 @@ set(CMAKE_CXX_COMPILER "${RISCV_ROOT_PATH}/bin/riscv64-unknown-linux-gnu-g++")
 
 set(CMAKE_SYSROOT "${RISCV_ROOT_PATH}/sysroot")
 
-set(CMAKE_COMMON_FLAGS "-O3 -fno-omit-frame-pointer -march=rv64gcv0p7_zfh_xtheadc -mabi=lp64d -mtune=c906 -nostartfiles -MD -mcmodel=medany -ffreestanding -fno-common -mno-relax")
-set(CMAKE_DISABLE_WARN_FLAGS "-Wint-to-pointer-cast=0 -Wimplicit-function-declaration=0")
+set(CMAKE_COMMON_FLAGS "-O3 -fno-omit-frame-pointer -march=rv64gcvxtheadc -mabi=lp64d -mtune=c906 -nostartfiles -MD -mcmodel=medany -ffreestanding -fno-common -mno-relax")
+set(CMAKE_DISABLE_WARN_FLAGS "-Wno-int-to-pointer-cast -Wno-implicit-function-declaration")
 
 set(CMAKE_C_FLAGS "${CMAKE_DISABLE_WARN_FLAGS} ${CMAKE_C_FLAGS} ${CMAKE_COMMON_FLAGS}" CACHE STRING "c flags")
 set(CMAKE_CXX_FLAGS "${CMAKE_DISABLE_WARN_FLAGS} ${CMAKE_CXX_FLAGS} ${CMAKE_COMMON_FLAGS}" CACHE STRING "c++ flags")
